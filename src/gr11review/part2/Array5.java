@@ -1,9 +1,5 @@
 package gr11review.part2;
 
-public class Utility {
-   
-
+public class Array5 {
     
 }
-
-
