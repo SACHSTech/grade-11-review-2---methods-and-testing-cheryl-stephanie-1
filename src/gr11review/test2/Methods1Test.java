@@ -3,38 +3,24 @@ package gr11review.test2;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import gr11review.part2.Utility;
+import gr11review.part2.Methods1;
 
 
 public class Methods1Test {
 
     @Test
     void testSignature(){
-        assertEquals("", Utility.zipZap(""));
+        assertEquals(true, Methods1.xyBalance("aaxbby"));
     }
     
     @Test
     void test1(){
-        assertEquals("zpzp", Utility.zipZap("zipzap"));
+        assertEquals(false, Methods1.xyBalance("aaxbb"));
     }
 
     @Test
     void test2(){
-        assertEquals("zpXzp", Utility.zipZap("zipXzap"));
-    }
-
-    @Test
-    void test3(){
-        assertEquals("zzzzpXzzp", Utility.zipZap("zzzzopXzzop"));
-    }
-    @Test
-    void test4(){
-        assertEquals("ziiiipzp", Utility.zipZap("ziiiipzap"));
-    }
-
-    @Test
-    void test5(){
-        assertEquals("xxzpxx", Utility.zipZap("xxzipxx"));
+        assertEquals(false, Methods1.xyBalance("yaaxbb"));
     }
 
 }
