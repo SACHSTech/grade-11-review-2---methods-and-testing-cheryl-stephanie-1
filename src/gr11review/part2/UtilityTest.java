@@ -9,17 +9,17 @@ public class UtilityTest{
 
     @Test
     void testSignature(){
-        assertEquals(true, Methods1.xyBalance("aaxbby"));
+        assertEquals(true, Utility.xyBalance("aaxbby"));
     }
     
     @Test
     void test1(){
-        assertEquals(false, Methods1.xyBalance("aaxbb"));
+        assertEquals(false, Utility.xyBalance("aaxbb"));
     }
 
     @Test
     void test2(){
-        assertEquals(false, Methods1.xyBalance("yaaxbb"));
+        assertEquals(false, Utility.xyBalance("yaaxbb"));
     }
   
 }
