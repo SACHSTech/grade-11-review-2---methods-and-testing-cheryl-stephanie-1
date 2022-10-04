@@ -14,16 +14,17 @@ public class Utility {
 
         BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
         
-        //String str;
-        //String answer; //switch
+        /* 
+        String str;
+        String answer; //switch
 
-        //System.out.print("");
-        //str = keyboard.readLine();
+        System.out.print("");
+        str = keyboard.readLine();
 
-        //answer = xyBalance(str);
-        //answer = longestWord(str);
-        //answer = withoutTen(null);
-        //System.out.print(answer);
+        answer = xyBalance(str);
+        answer = longestWord(str);
+        System.out.print(answer);
+        */
 
         System.out.print("Length: ");
         int length = Integer.parseInt(keyboard.readLine());
@@ -36,7 +37,9 @@ public class Utility {
             nums[i] = num;
         }
 
-        int[] ans = withoutTen(nums);
+        //int[] ans = withoutTen(nums);
+
+        int[] ans = zeroFront(nums);
         
         System.out.println();
 
@@ -46,12 +49,41 @@ public class Utility {
 
     }
 
+    //------------------------------------------------------
+
+    /**
+     * Array 3 - One Dimensional
+     * A program that rearranges all the zeros to be grouped at the start of the array. 
+     * @param nums integer array
+     * @return version of array with zeroes at the start
+     */
+
+    public static int [] zeroFront(int[] nums){
+        int update = 0;
+        int i;
+        int x;
+    
+        for (i = 0; i < nums.length; i++){
+          if (nums[i] == 0 ){
+            nums[i] = nums[update];
+            nums[update] = 0;
+            update++;
+          }
+        }
+
+        for (x = 0; x < nums.length; x++){
+            System.out.print(nums[x]);
+          }
+        System.out.println("");
+
+        return nums;
+      }
     
     //------------------------------------------------------
 
     /**
      * Array 1 - One Dimensional
-     * All 10's are removed and replaced with 0 at the end of array. 
+     * A program that removes 10's and replaced with 0 at the end of array. 
      * @param nums
      * @param intArray new copy of the array
      * @param intZero number of zeros
