@@ -38,7 +38,6 @@ public class Utility {
         }
 
         //int[] ans = withoutTen(nums);
-
         int[] ans = zeroFront(nums);
         
         System.out.println();
@@ -46,7 +45,35 @@ public class Utility {
         for(int i = 0; i < ans.length; i++) {
             System.out.println(ans[i]);
         }
+    }
 
+    //------------------------------------------------------
+
+    /**
+     * Array 5 - One Dimensional - Two Loops
+     * A program determiens if array can be split equally
+     * @param nums Array to be split
+     * @return boolean if array split equally
+     */
+
+    public static boolean canBalance(int[] nums) {
+        int intLeftSum = 0;
+        int intRightSum = 0;
+        int i;
+        
+        for(i = 0; i < nums.length; i++){
+            intRightSum = 0;
+            intLeftSum += nums[i];
+
+            for (int x = (nums.length-1); x > i; x--){
+                intRightSum += nums[x];
+
+                if (intLeftSum == intRightSum && x == (i + 1)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     //------------------------------------------------------
@@ -186,5 +213,4 @@ public class Utility {
     }
 
     //------------------------------------------------------
-    
 }
