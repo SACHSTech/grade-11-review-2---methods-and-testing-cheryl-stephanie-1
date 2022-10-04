@@ -1,39 +1,100 @@
 package gr11review.part2;
-
-//import java.io.BufferedReader;
 import java.io.*;
 import java.io.IOException;
 
-//import java.text.*;
-//import java.io.File;
-
+/**
+ * Grade 11 Java Review Part 2
+ * @author Stephanie Tam
+ */
 
 public class Utility {
 
-    //public static void main(String[] args) {
-    //}   
-
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) 
+    throws Exception{
 
         BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
         
-        String str;
-        String answer; //switch
+        //String str;
+        //String answer; //switch
 
-        System.out.print("");
-        str = keyboard.readLine();
+        //System.out.print("");
+        //str = keyboard.readLine();
 
         //answer = xyBalance(str);
-        answer = longestWord(str);
-        System.out.print(answer);
+        //answer = longestWord(str);
+        //answer = withoutTen(null);
+        //System.out.print(answer);
+
+        System.out.print("Length: ");
+        int length = Integer.parseInt(keyboard.readLine());
+        int[] nums;
+        nums = new int[length];
+
+        for(int i = 0; i < length; i++) {
+            
+            int num = Integer.parseInt(keyboard.readLine());
+            nums[i] = num;
+        }
+
+        int[] ans = withoutTen(nums);
+        
+        System.out.println();
+
+        for(int i = 0; i < ans.length; i++) {
+            System.out.println(ans[i]);
+        }
+
+    }
+
+    
+    //------------------------------------------------------
+
+    /**
+     * Array 1 - One Dimensional
+     * All 10's are removed and replaced with 0 at the end of array. 
+     * @param nums
+     * @param intArray new copy of the array
+     * @param intZero number of zeros
+     * @param intIndex index number of array
+     * @param intCount number count
+     * @return intArray version of array with 10's removed
+     */
+
+    public static int[] withoutTen(int[] nums) {
+        
+        int intZero = 0;
+        int intIndex;
+        int intCount;
+        int[] intArray = new int[nums.length];
+       
+        for (intIndex = 0; intIndex < nums.length; intIndex++){
+
+            if (nums[intIndex] != 10){
+                intArray[intIndex - intZero] = nums[intIndex];
+            }
+            else if (nums[intIndex] == 10){
+                intZero++;
+            }
+        }
+       
+        if (intZero != 0){
+            for (intCount = 0; intCount < intZero; intCount++){
+                intArray[(nums.length - 1) - intCount] = 0;
+            }
+        }
+        return intArray;
     }
 
     //------------------------------------------------------
 
     /**
+     * File IO - Read 1
      * A program that returns the longest word in the file.
-     * @author Stephanie Tam
-     * 
+     * @param filenametxt
+     * @param strLongestWord longest word length
+     * @param strCurrentLength word length of current word
+     * @return longest string word
+     * @throws IOException
      */
 
     public static String longestWord(String filenametxt)throws IOException{
@@ -59,13 +120,12 @@ public class Utility {
     //------------------------------------------------------
 
     /**
+     * Methods 1
      * A program that will return true/false if the given string is xy-balanced.
-     * @author Stephanie Tam
      * @param x boolean false
      * @param y boolean false
      * @return boolean if string is xy-balanced
      */
-    
     
     public static boolean xyBalance(String str){
 

@@ -7,6 +7,9 @@ import gr11review.part2.Utility;
 
 public class UtilityTest{
 
+    int[] nums = {1, 10, 10, 2};
+    int[] ans = {1,2,0,0};
+
     @Test
     void testSignature(){
         assertEquals(true, Utility.xyBalance("aaxbby"));
@@ -20,6 +23,11 @@ public class UtilityTest{
     @Test
     void test2(){
         assertEquals(false, Utility.xyBalance("yaaxbb"));
+    }
+
+    @Test
+    void test3(){
+        assertArrayEquals(ans, Utility.withoutTen(nums));
     }
   
 }
