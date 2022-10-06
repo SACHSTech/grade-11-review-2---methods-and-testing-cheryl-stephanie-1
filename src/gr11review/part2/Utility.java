@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class Utility {
 
+
     /**
      * author: Cheryl L
      * @param str intput letters and words in one string
@@ -54,19 +55,18 @@ public class Utility {
         String alphaWord = "";
 
         while (strWord != null){
+        
             strWord = reader.readLine();
 
             if(strWord != null && strWord.compareTo(alphaWord) < 0){
+            
                 alphaWord = strWord;
                 
             }
         }
        
-
         reader.close();
         return alphaWord;
-        
-
     }
 
     /**
@@ -86,10 +86,12 @@ public class Utility {
                 if(nums[n - 1] != nums[n] && nums[n + 1] != nums[n]){
 
                     if (nums[n - 1] > nums[n + 1]){
+                    
                         nums[n] = nums[n + 1];
                         n++;
                     }
                     else if (nums[n - 1] < nums[n + 1]){
+                    
                         nums[n] = nums[n - 1];
                     }
                 }
