@@ -149,7 +149,7 @@ public class Utility {
     /**
      * File IO - Read 1
      * A program that returns the longest word in the file.
-     * @param filenametxt
+     * @param filenametxt enters file from directory
      * @param strLongestWord longest word length
      * @param strCurrentLength word length of current word
      * @return longest string word
@@ -158,7 +158,7 @@ public class Utility {
 
     public static String longestWord(String filenametxt)throws IOException{
 
-        BufferedReader reader = new BufferedReader(new FileReader("/Users/Cindy/github-classroom/SACHSTech/grade-11-review-2---methods-and-testing-cheryl-stephanie-1/src/gr11review/test2/Review2_3Test_1.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader(filenametxt));
 
         String strLongestWord = "";
         String strCurrentLength;
