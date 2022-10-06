@@ -9,12 +9,11 @@ import java.io.IOException;
 
 public class Utility {
 
-    public static void main(String[] args) 
-    throws Exception{
+    /* 
+    public static void main(String[] args) throws Exception{
 
         BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
         
-        /* 
         String str;
         String answer; //switch
 
@@ -24,8 +23,7 @@ public class Utility {
         answer = xyBalance(str);
         answer = longestWord(str);
         System.out.print(answer);
-        */
-
+        
         System.out.print("Length: ");
         int length = Integer.parseInt(keyboard.readLine());
         int[] nums;
@@ -46,6 +44,7 @@ public class Utility {
             System.out.println(ans[i]);
         }
     }
+    */
 
     //------------------------------------------------------
 
@@ -57,17 +56,22 @@ public class Utility {
      */
 
     public static boolean canBalance(int[] nums) {
+
+        // initialize variables
         int intLeftSum = 0;
         int intRightSum = 0;
         int i;
         
+        // for loop sum of left side of array
         for(i = 0; i < nums.length; i++){
             intRightSum = 0;
             intLeftSum += nums[i];
 
-            for (int x = (nums.length-1); x > i; x--){
+            // for loop sum of right side of array
+            for (int x = (nums.length - 1); x > i; x--){
                 intRightSum += nums[x];
 
+                // if left and right sum matches, return true
                 if (intLeftSum == intRightSum && x == (i + 1)){
                     return true;
                 }
@@ -86,10 +90,13 @@ public class Utility {
      */
 
     public static int [] zeroFront(int[] nums){
+
+        // initialize variables
         int update = 0;
         int i;
         int x;
     
+        // for loop to check where equals zero in array 
         for (i = 0; i < nums.length; i++){
           if (nums[i] == 0 ){
             nums[i] = nums[update];
@@ -103,6 +110,7 @@ public class Utility {
           }
         System.out.println("");
 
+        // return array
         return nums;
       }
     
@@ -121,26 +129,32 @@ public class Utility {
 
     public static int[] withoutTen(int[] nums) {
         
+        // initialize variables
         int intZero = 0;
         int intIndex;
         int intCount;
         int[] intArray = new int[nums.length];
-       
+
+        // for loop to go through elements in array
         for (intIndex = 0; intIndex < nums.length; intIndex++){
 
+            // if not 10
             if (nums[intIndex] != 10){
                 intArray[intIndex - intZero] = nums[intIndex];
             }
+            // if 10, increase intZero
             else if (nums[intIndex] == 10){
                 intZero++;
             }
         }
        
+        // if statement for when there are zeros
         if (intZero != 0){
             for (intCount = 0; intCount < intZero; intCount++){
                 intArray[(nums.length - 1) - intCount] = 0;
             }
         }
+        // return new array without 10
         return intArray;
     }
 
@@ -160,9 +174,11 @@ public class Utility {
 
         BufferedReader reader = new BufferedReader(new FileReader(filenametxt));
 
+        // initialize variables
         String strLongestWord = "";
         String strCurrentLength;
         
+        // while loop to go through each line to find the longest word
         String line = reader.readLine();
         while (line != null) {
             strCurrentLength = line;
@@ -173,6 +189,8 @@ public class Utility {
             System.out.print(strCurrentLength);
         }
         reader.close();
+
+        // return longest word
         return strLongestWord;
     }
 
@@ -188,12 +206,14 @@ public class Utility {
     
     public static boolean xyBalance(String str){
 
+        // initialize variables
         boolean x = false;
         boolean y = false;
         int i;
 
         int length = str.length();
 
+        // for loop to check chars
         for (i = 0; i < length; i++) {
             if (str.charAt(i) == 'x' && y == true){
                 x = true;
@@ -209,6 +229,7 @@ public class Utility {
                 y = true;
             }
         }
+        // return boolean
         return y;
     }
 
