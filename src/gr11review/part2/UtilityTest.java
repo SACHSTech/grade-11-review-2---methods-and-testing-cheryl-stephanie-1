@@ -130,6 +130,7 @@ public class UtilityTest{
      */
 
     @Test
+    //pattern up to three
     void seriesUpTest1() {
         int[] outArray = {1, 1, 2, 1, 2, 3};
 
@@ -137,6 +138,7 @@ public class UtilityTest{
     }
 
     @Test
+    //pattern up to four
     void seriesUpTest2() {
         int[] outArray = {1, 1, 2, 1, 2, 3, 1, 2, 3, 4};
 
@@ -144,9 +146,44 @@ public class UtilityTest{
     }
 
     @Test
+    //pattern up to two
     void seriesUpTest3() {
-        int[] outArray = {0};
 
-        assertTrue(Arrays.equals(Utility.seriesUp(0), outArray));
+        int[] outArray = {1, 1, 2};
+
+        assertTrue(Arrays.equals(Utility.seriesUp(2), outArray));
     }
+
+    /**
+     * Array 8 - Two Dimensional
+     * author: Cheryl L
+     */
+    
+    @Test
+    void splitTest1() {
+
+        int[][] inArray = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] outArray = {{1,2}};
+
+        assertTrue(Arrays.deepEquals(Utility.split(inArray, 0, 1),outArray));
+    }
+
+    @Test
+    void splitTest2() {
+
+        int[][] inArray = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] outArray = {{1,2}, {4,5}};
+
+        assertTrue(Arrays.deepEquals(Utility.split(inArray, 1, 1), outArray));
+    }
+
+    @Test
+    void splitTest3() {
+
+        int[] [] inArray = {{1,2,3},{4,5,6},{7,8,9}};
+        int[] [] outArray = {{1,2,3}, {4,5,6}, {7,8,9}};
+
+        assertTrue(Arrays.deepEquals(Utility.split(inArray, 2, 2),outArray));
+    }
+
 }    

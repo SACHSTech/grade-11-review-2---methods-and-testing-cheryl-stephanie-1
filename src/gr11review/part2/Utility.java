@@ -99,18 +99,15 @@ public class Utility {
                         nums[n] = nums[n - 1];
                         n++;
                     }
-                    else if (nums[n - 1] < nums[n + 1]){
-                        nums[n] = nums[n + 1];
-                        n--;
-
-                    
+                    else if (nums[n - 1] < nums[n + 1]){                  
                         nums[n] = nums[n + 1];
                         n++;
+
                     }
                     else if (nums[n - 1] < nums[n + 1]){
                     
                         nums[n] = nums[n - 1];
-
+                        n--;
                     }
                 }
             }
@@ -139,8 +136,8 @@ public class Utility {
                 patternRule[p++] = b;
             }
         }
-        return patternRule;
-        
+
+        return patternRule; 
     }
 
     /**
@@ -158,9 +155,9 @@ public class Utility {
 
         for(int r = 0; r <= row; r++){
             for(int c = 0; c <= col; c++){
+
                 countArray[r][c] = arr[r][c];
             }
-            
         }
 
         return countArray;
