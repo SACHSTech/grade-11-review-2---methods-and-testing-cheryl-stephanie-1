@@ -250,10 +250,18 @@ public class Utility {
 
         BufferedReader reader = new BufferedReader(new FileReader("/Users/Chery/grade-11-review-2---methods-and-testing-cheryl-stephanie-1-1/src/gr11review/test2/Review2_3Test_3.txt"));
     
-        String strWord = "";
-        String alphaWord = "";
+        String strWord = reader.readLine();
+        String alphaWord = "z";
 
         while (strWord != null){
+
+
+            strWord = reader.readLine();
+
+            if(strWord != null && strWord.compareTo(alphaWord) < 0){
+
+                alphaWord = strWord; 
+            }
         
             strWord = reader.readLine();
 
@@ -261,6 +269,7 @@ public class Utility {
             
                 alphaWord = strWord;
                 
+
             }
         }
        
@@ -285,13 +294,19 @@ public class Utility {
                 if(nums[n - 1] != nums[n] && nums[n + 1] != nums[n]){
 
                     if (nums[n - 1] > nums[n + 1]){
-                    
+
+                        nums[n] = nums[n - 1];
+                        n++;
+                    }
+                    else if (nums[n - 1] < nums[n + 1]){                  
                         nums[n] = nums[n + 1];
                         n++;
+
                     }
                     else if (nums[n - 1] < nums[n + 1]){
                     
                         nums[n] = nums[n - 1];
+                        n--;
                     }
                 }
             }
@@ -320,8 +335,8 @@ public class Utility {
                 patternRule[p++] = b;
             }
         }
-        return patternRule;
-        
+
+        return patternRule; 
     }
 
     /**
@@ -339,9 +354,9 @@ public class Utility {
 
         for(int r = 0; r <= row; r++){
             for(int c = 0; c <= col; c++){
+
                 countArray[r][c] = arr[r][c];
             }
-            
         }
 
         return countArray;
